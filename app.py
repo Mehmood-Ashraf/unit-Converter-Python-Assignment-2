@@ -18,6 +18,13 @@ conversionFactors = {
         "Imperial Pint": 3.3307, "Imperial Cup": 6.66139, "Imperial Fluid Ounce": 160, "Imperial Tablespoon": 320, "Imperial Teaspoon": 960,
         "Cubic Foot": 0.133681, "Cubic Inch": 231
     },
+    "Area":{
+        "Square Kilometer": 1, "Hectare": 100, "Square Meter": 1e6, "Square Mile": 0.386102, "Acre": 247.105, "Square Yard": 1.196e6,
+        "Square Foot": 1.076e7, "Square Inch": 1.55e9
+    },
+    "Time":{
+        "Century": 1, "Decade": 10, "Year": 100, "Month": 1200, "Week": 5217.29, "Day": 36525, "Hour": 876600, "Minute": 52596000, "Second": 3155760000, "Milisecond": 3155760000000, "Microsecond": 3155760000000000, "Nanosecond": 315576000
+    }
 
 }
 
@@ -105,11 +112,11 @@ st.markdown("<div class='stTitle'>🔄 Unit Converter</div>", unsafe_allow_html=
 
 # Initialize session state for category
 if "selected_category" not in st.session_state:
-    st.session_state.selected_category = list(conversionFactors.keys())[0]  # Default first category
+    st.session_state.selected_category = list(conversionFactors.keys())[0]
 
 # Sidebar: Select Category using Radio Buttons
 sidebar_category = st.sidebar.radio("Choose a Category", list(conversionFactors.keys()), 
-                                    index=list(conversionFactors.keys()).index(st.session_state.selected_category))
+index=list(conversionFactors.keys()).index(st.session_state.selected_category))
 
 # Sync session state with sidebar selection
 if sidebar_category != st.session_state.selected_category:
